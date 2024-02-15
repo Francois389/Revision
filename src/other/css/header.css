@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+    padding: 1vh;
+    background-color: #c2c2c2;
+    border-radius: 5px;
+}
+
+.entete {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0a53be;
+    color: #fff;
+    padding: 1vh;
+}
+
+.titre {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.action {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+        margin: 0 10px;
+    }
+}
