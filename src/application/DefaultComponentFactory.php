@@ -19,6 +19,7 @@
 
 namespace application;
 
+use controllers\CreationCarteController;
 use controllers\HomeController;
 
 use services\NoService;
@@ -41,6 +42,7 @@ class DefaultComponentFactory implements ComponentFactory
     public function buildControllerByName(string $controller_name): mixed {
         return match ($controller_name) {
             "Home" => $this->buildHomeController(),
+            "CreationCarte" => $this->buildCreationCarteCOntroller(),
             default => throw new NoControllerAvailableForNameException($controller_name)
         };
     }
@@ -61,9 +63,20 @@ class DefaultComponentFactory implements ComponentFactory
 
     /**
      * @return HomeController
+     * @throws NoServiceAvailableForNameException
      */
     private function buildHomeController(): HomeController
     {
         return new HomeController($this->buildServiceByName("NoService"));
     }
+
+    /**
+     * @return CreationCarteController
+     * @throws NoServiceAvailableForNameException
+     */
+    private function buildCreationCarteController(): CreationCarteController
+    {
+        return new CreationCarteController($this->buildServiceByName("NoService"));
+    }
+
 }
