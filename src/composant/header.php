@@ -26,7 +26,7 @@ if (isset($pageSelectionner)) {
         </a>
     </div>
     <p class="titre">
-        Revison
+        Revision
     </p>
     <a href="#" class="<?php if ($tab["mon_compte"]) echo "selectionner"?>">
         Mon compte

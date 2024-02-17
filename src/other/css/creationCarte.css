@@ -1,0 +1,23 @@
+.container {
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    margin: 5% 30%;
+    padding: 2vh;
+
+    div {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            margin: 2vh 0 1vh 0;
+        }
+    }
+
+    .radio-group {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
