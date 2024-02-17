@@ -15,6 +15,13 @@
     justify-content: space-between;
 }
 
+.description {
+    background-color: #FFF;
+    border-radius: 5px;
+    padding: 1vh;
+    margin: 1vh;
+}
+
 .container-date-echeance-creation, .container-importance {
     justify-content: center !important;
 }

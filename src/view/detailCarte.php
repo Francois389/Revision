@@ -29,7 +29,7 @@ function getStar($importance, $importance_max):string
         <title>Carte</title>
         <link rel="stylesheet" href="../src/other/css/detailCarte.css">
         <!-- Fontawesome -->
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+        <link rel="stylesheet" href="lib/fontawesome-free-6.2.1-web/css/all.css">
     </head>
     <body>
     <?php
@@ -46,7 +46,7 @@ function getStar($importance, $importance_max):string
             <div><?php echo $carte->getTitre() ?></div>
             <div><?php echo $carte->getTag() ?></div>
         </div>
-        <div class="decription">
+        <div class="description">
             <div><?php echo $carte->getDescription() ?></div>
         </div>
         <div class="container-date-echeance-creation">
