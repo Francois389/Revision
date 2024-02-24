@@ -1,0 +1,21 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    margin: 2% 10%;
+}
+
+.conteneur-section {
+    background-color: #e2e2e2;
+    border-radius: 10px;
+    margin: 2% 0;
+
+    .titre-section {
+        font-size: 2em;
+    }
+
+    .conteneur-carte {
+        display: flex;
+        flex-direction: row;
+    }
+}
+

@@ -23,6 +23,7 @@ use controllers\CreationCarteController;
 use controllers\HomeController;
 
 use services\CreationCarteService;
+use services\HomeService;
 use services\NoService;
 use services\Service;
 use yasmf\ComponentFactory;
@@ -59,6 +60,7 @@ class DefaultComponentFactory implements ComponentFactory
         return match ($service_name) {
             "NoService" => new NoService(),
             "CreationCarte" => new CreationCarteService(),
+            "Home" => new HomeService(),
             default => throw new NoServiceAvailableForNameException($service_name)
         };
     }
@@ -70,7 +72,7 @@ class DefaultComponentFactory implements ComponentFactory
      */
     private function buildHomeController(): HomeController
     {
-        return new HomeController($this->buildServiceByName("NoService"));
+        return new HomeController($this->buildServiceByName("Home"));
     }
 
     /**

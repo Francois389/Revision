@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../src/other/css/composant/carteRevision.css">
 <?php
 
 /**
@@ -21,7 +22,6 @@ function getStar($importance, $importance_max): string
 function afficherCarte(\other\classes\Carte $carte): void
 {
     ?>
-    <link rel="stylesheet" href="../src/other/css/composant/carteRevision.css">
     <div class="carte">
         <div class="titre-tag">
             <div><?php echo $carte->getTitre() ?></div>
@@ -32,11 +32,11 @@ function afficherCarte(\other\classes\Carte $carte): void
         </div>
         <div class="container-date-echeance-creation">
             <div class="container-date-echeance">
-                <div><i class="fa-solid fa-clock-rotate-left"></i>&Eacute;ch&eacute;ance</div>
+                <div class="row"><i class="fa-solid fa-clock-rotate-left"></i>&Eacute;ch&eacute;ance</div>
                 <div class="date-echeance"><?php echo $carte->getEcheance() ?></div>
             </div>
             <div class="container-date-creation">
-                <div><i class="fa-regular fa-clock"></i>Cr&eacute;ation</div>
+                <div class="row"><i class="fa-regular fa-clock"></i>Cr&eacute;ation</div>
                 <div class="date-creation"><?php echo $carte->getDateCreation() ?></div>
             </div>
         </div>
