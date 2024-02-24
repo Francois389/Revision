@@ -69,4 +69,10 @@ class DataSource
         return new PDO($ds_name, $this->user, $this->pass, $options);
     }
 
+    public static function getPDOCreationCarte(): PDO
+    {
+        $dataSource = new DataSource("localhost", 3306, "revision", "createCarte", "8bb3d", "utf8mb4");
+        return $dataSource->getPDO();
+    }
+
 }

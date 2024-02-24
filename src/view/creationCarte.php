@@ -17,6 +17,7 @@ function getOption(string $value, string $textDisplay, bool $isSelected = false)
     return $resultat;
 }
 
+
 ?>
 
 <!doctype html>
@@ -36,7 +37,7 @@ function getOption(string $value, string $textDisplay, bool $isSelected = false)
     include 'composant/header.php'
     ?>
     <div class="container">
-        <form method="post" action="index.php?controller=CreationCarte">
+        <form method="post" action="index.php?controller=CreationCarte&action=creation">
             <div class="container-titre <?php if (!$titreInfo["valide"]) echo "erreur" ?>">
                 <label for="titre">Titre</label>
                 <input type="text" name="titre" value="<?php echo $titreInfo["valeur"] ?>"
@@ -58,8 +59,6 @@ function getOption(string $value, string $textDisplay, bool $isSelected = false)
                         echo getOption($tab["code"], $tab["nom"], $tab["code"] == $tagInfo["valeur"]);
                     }
                     ?>
-                    <option value="controle">Contrôle</option>
-                    <option value="exercice">Exercice</option>
                 </select>
             </div>
 
