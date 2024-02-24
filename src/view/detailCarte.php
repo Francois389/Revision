@@ -2,24 +2,6 @@
 
 require "composant/carteRevision.php";
 
-/**
- * Retourne le nombre d'étoile en fonction de l'importance
- * @param $importance L'importance de la carte
- * @param $importance_max L'importance maximale
- * @return string
- */
-function getStar($importance, $importance_max):string
-{
-    $star = '';
-    for ($i = $importance; $i < $importance_max; $i++) {
-        $star .= '<i class="far fa-star"></i>';
-    }
-    for ($i = 0; $i < $importance; $i++) {
-        $star .= '<i class="fas fa-star"></i>';
-    }
-    return $star;
-}
-
 ?>
 
 <!doctype html>
@@ -44,7 +26,9 @@ function getStar($importance, $importance_max):string
         <div class="btn btn-dupliquer">Dupliquer</div>
     </div>
     <?php
-    afficherCarte($carte);
+    if (isset($carte)) {
+        afficherCarte($carte);
+    }
     ?>
 
 

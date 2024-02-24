@@ -1,7 +1,27 @@
 <?php
-function afficherCarte(\other\classes\Carte $carte)
+
+/**
+ * Retourne le nombre d'étoiles en fonction de l'importance
+ * @param $importance L'importance de la carte
+ * @param $importance_max L'importance maximale
+ * @return string
+ */
+function getStar($importance, $importance_max): string
+{
+    $star = '';
+    for ($i = $importance; $i < $importance_max; $i++) {
+        $star .= '<i class="fas fa-star"></i>'; // Etoile pleine
+    }
+    for ($i = 0; $i < $importance; $i++) {
+        $star .= '<i class="far fa-star"></i>'; // Etoile creuse
+    }
+    return $star;
+}
+
+function afficherCarte(\other\classes\Carte $carte): void
 {
     ?>
+    <link rel="stylesheet" href="../src/other/css/composant/carteRevision.css">
     <div class="carte">
         <div class="titre-tag">
             <div><?php echo $carte->getTitre() ?></div>
@@ -25,5 +45,5 @@ function afficherCarte(\other\classes\Carte $carte)
             <div><?php echo getStar($carte->getImportance(), 5); ?></div>
         </div>
     </div>
-<?php
+    <?php
 }
