@@ -22,6 +22,7 @@ namespace application;
 use controllers\CreationCarteController;
 use controllers\HomeController;
 
+use services\CreationCarteService;
 use services\NoService;
 use services\Service;
 use yasmf\ComponentFactory;
@@ -38,6 +39,7 @@ class DefaultComponentFactory implements ComponentFactory
      * @param string $controller_name the name of the controller to instanciate
      * @return mixed the controller
      * @throws NoControllerAvailableForNameException when controller is not found
+     * @throws NoServiceAvailableForNameException when service is not found
      */
     public function buildControllerByName(string $controller_name): mixed {
         return match ($controller_name) {
@@ -56,6 +58,7 @@ class DefaultComponentFactory implements ComponentFactory
     {
         return match ($service_name) {
             "NoService" => new NoService(),
+            "CreationCarte" => new CreationCarteService(),
             default => throw new NoServiceAvailableForNameException($service_name)
         };
     }
@@ -76,7 +79,7 @@ class DefaultComponentFactory implements ComponentFactory
      */
     private function buildCreationCarteController(): CreationCarteController
     {
-        return new CreationCarteController($this->buildServiceByName("NoService"));
+        return new CreationCarteController($this->buildServiceByName("CreationCarte"));
     }
 
 }
