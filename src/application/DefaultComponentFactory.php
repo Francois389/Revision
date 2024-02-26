@@ -33,13 +33,13 @@ use yasmf\NoServiceAvailableForNameException;
  */
 class DefaultComponentFactory implements ComponentFactory
 {
-
     /**
      * @param string $controller_name the name of the controller to instanciate
      * @return mixed the controller
      * @throws NoControllerAvailableForNameException when controller is not found
      */
-    public function buildControllerByName(string $controller_name): mixed {
+    public function buildControllerByName(string $controller_name): mixed
+    {
         return match ($controller_name) {
             "Home" => $this->buildHomeController(),
             "CreationCarte" => $this->buildCreationCarteCOntroller(),

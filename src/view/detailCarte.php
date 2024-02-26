@@ -6,7 +6,7 @@
  * @param $importance_max L'importance maximale
  * @return string
  */
-function getStar($importance, $importance_max):string
+function getStar($importance, $importance_max): string
 {
     $star = '';
     for ($i = $importance; $i < $importance_max; $i++) {
@@ -34,7 +34,7 @@ function getStar($importance, $importance_max):string
     <body>
     <?php
     include 'composant/header.php';
-    ?>
+?>
 
     <div class="container-btn-action">
         <div class="btn btn-modifier">Modifier</div>
