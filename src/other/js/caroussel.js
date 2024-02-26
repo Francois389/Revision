@@ -1,43 +1,40 @@
-// In HTML, .display-area has the width of 4 cards = 880px. Each card is 200px width and margin set to 10px.
-// .display-area has a .cards-wrapper which contains all the cards. .cards-wrapper is set to display flex.
-// .display-area has overflow hidden to hide the portion of cards-wrapper which extends beyond the container's width.
+/**
+ * FRANCAIS
+ * En HTML, "display-area" a une largeur de 4 cartes = 880px. Chaque carte a une largeur de 200px et une marge de 10px.
+ * .display-area a un "conteneur-carte" qui contient toutes les cartes. "conteneur-carte" est défini pour afficher flex.
+ * .display-area a un débordement caché pour masquer la partie de "conteneur-carte" qui dépasse la largeur du conteneur.
+ */
 
-const wrapper = document.querySelector('.conteneur-carte');
-// console.log(wrapper.clientWidth);
 
-// grab the dots
-const dots = document.querySelectorAll('.dot');
-// the default active dot num which is array[0]
-let activeDotNum = 0;
+const carousselCollection = document.getElementsByClassName('caroussel');
 
-dots.forEach((dot, idx) => {
-//   number each dot according to array index
-  dot.setAttribute('data-num', idx);
+for (let i = 0; i < carousselCollection.length; i++) {
+    /* On récupère le conteneur de carte */
+    carousselCollection[i]["cartes"] = carousselCollection[i].getElementsByClassName('conteneur-carte')[0];
+    /* On récupère les points */
+    carousselCollection[i]["dots"] = carousselCollection[i].getElementsByClassName('dot');
+    carousselCollection[i]["activeDotNum"] = 0;
+}
 
-//   add a click event listener to each dot
-  dot.addEventListener('click', (e) => {
+for (const caroussel of carousselCollection) {
+    let cartes = caroussel.cartes;
+    let dots = caroussel.dots;
+    let activeDotNum = caroussel.activeDotNum;
 
-    let clickedDotNum = e.target.dataset.num;
-    // console.log(clickedDotNum);
-//     if the dot clicked is already active, then do nothing
-    if(clickedDotNum == activeDotNum) {
-      // console.log('active');
-      return;
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].setAttribute('data-num', i);
+        dots[i].addEventListener('click', (e) => {
+            let clickedDotNum = e.target.dataset.num;
+
+            /* Si le point cliqué n'est pas actif, alors on déplace le conteneur de carte */
+            if (clickedDotNum !== activeDotNum) {
+                let displayArea = cartes.parentElement.clientWidth;
+                let pixels = -displayArea * clickedDotNum;
+                cartes.style.transform = 'translateX(' + pixels + 'px)';
+                dots[activeDotNum].classList.remove('active');
+                dots[clickedDotNum].classList.add('active');
+                activeDotNum = clickedDotNum;
+            }
+        });
     }
-    else {
-      // console.log('not active');
-      // shift the wrapper
-      let displayArea = wrapper.parentElement.clientWidth;
-      // let pixels = -wrapper.clientWidth * clickedDotNum;
-      let pixels = -displayArea * clickedDotNum
-      wrapper.style.transform = 'translateX('+ pixels + 'px)';
-//       remove the active class from the active dot
-      dots[activeDotNum].classList.remove('active');
-//       add the active class to the clicked dot
-      dots[clickedDotNum].classList.add('active');
-//       now set the active dot number to the clicked dot;
-      activeDotNum = clickedDotNum;
-    }
-
-  });
-});
+}

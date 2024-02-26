@@ -55,13 +55,26 @@ include "composant/carteRevision.php";
             <div class="titre-section">
                 Carte al&eacute;atoire
             </div>
-                        <!-- TOOD faire un caroussel -->
-            <div class="conteneur-carte">
-                <?php
-                foreach ($carteAleatoire as $carteA) {
-                    afficherCarte($carteA);
-                }
-                ?>
+            <!-- TOOD faire un caroussel -->
+            <div class="caroussel" id="caroussel-2">
+                <div class="display-area">
+                    <div class="conteneur-carte">
+                        <?php
+                        foreach ($carteAleatoire as $carteA) {
+                            afficherCarte($carteA);
+
+                        }
+                        ?>
+                    </div>
+                </div>
+                <div class="dots-wrapper">
+                    <button class="dot active"></button>
+                    <?php
+                    for ($i = 0; $i < count($carteEcheanceCourte) % 4; $i++) {
+                        echo '<button class="dot"></button>';
+                    }
+                    ?>
+                </div>
             </div>
         </div>
     </div>
