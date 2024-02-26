@@ -21,6 +21,8 @@ class HomeController implements Controller
 
     private Service $service;
 
+    private DataSource $dataSource;
+
     /**
      * Constructeur de la classe.
      *
@@ -29,6 +31,7 @@ class HomeController implements Controller
     public function __construct(Service $service)
     {
         $this->service = $service;
+        $this->dataSource = $dataSource;
     }
 
     /**
@@ -39,7 +42,7 @@ class HomeController implements Controller
     public function index(): View
     {
 
-        $carte = new Carte('titre', 'tag', 'description', date('d/m/Y', strtotime('+1 week')), date("d/m/Y"), 4);
+        $this->service->setPDO($this->dataSource->getPDOLectureCarte());
 
         //STUMB
         $carteEcheanceCourte = array($carte, $carte, $carte, $carte, $carte, $carte, $carte, $carte, $carte);

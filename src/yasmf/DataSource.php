@@ -56,7 +56,7 @@ class DataSource
     /**
      * @return PDO the PDO object to connect to the database
      */
-    public function getPDO(): PDO
+    private function getPDO(): PDO
     {
         $ds_name = "mysql:host=$this->host;port=$this->port;dbname=$this->dbName;charset=$this->charset";
         $options = [
@@ -72,6 +72,12 @@ class DataSource
     public static function getPDOCreationCarte(): PDO
     {
         $dataSource = new DataSource("localhost", 3306, "revision", "createCarte", "8bb3d", "utf8mb4");
+        return $dataSource->getPDO();
+    }
+
+    public static function getPDOLectureCarte(): PDO
+    {
+        $dataSource = new DataSource("localhost", 3306, "revision", "lectureCarte", "187fsd", "utf8mb4");
         return $dataSource->getPDO();
     }
 
