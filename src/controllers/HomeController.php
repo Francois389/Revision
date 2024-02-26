@@ -6,6 +6,7 @@ use other\classes\Carte;
 use services\AccueilService;
 use services\NoService;
 use services\Service;
+use yasmf\DataSource;
 use yasmf\View;
 
 /**
@@ -21,17 +22,15 @@ class HomeController implements Controller
 
     private Service $service;
 
-    private DataSource $dataSource;
 
     /**
      * Constructeur de la classe.
      *
-     * @param NoService|Service $noService Service du HomeController.
+     * @param Service $service
      */
     public function __construct(Service $service)
     {
         $this->service = $service;
-        $this->dataSource = $dataSource;
     }
 
     /**
@@ -42,11 +41,11 @@ class HomeController implements Controller
     public function index(): View
     {
 
-        $this->service->setPDO($this->dataSource->getPDOLectureCarte());
+        $this->service->setPDO(DataSource::getPDOLectureCarte());
 
-        //STUMB
-        $carteEcheanceCourte = array($carte, $carte, $carte, $carte, $carte, $carte, $carte, $carte, $carte);
-        $carteAleatoire = array($carte, $carte, $carte, $carte, $carte);
+        $carteEcheanceCourte = $this->service->getCarteEcheanceCourte(20);
+        $carteAleatoire = $this->service->getCarteAleatoire(20);
+
 
         $view = new View('accueil');
         $view->setVar('carteEcheanceCourte', $carteEcheanceCourte);

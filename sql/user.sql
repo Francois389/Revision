@@ -6,4 +6,4 @@ GRANT INSERT ON `revision`.'carte_revision' TO 'createCarte'@'localhost';
 
 -- Utilisateur "lectureCarte" avec les droits de lecture sur la table "carte_revision"
 CREATE USER 'lectureCarte'@'localhost' IDENTIFIED BY '187fsd';
-GRANT SELECT ON `revision`.'carte_revision' TO 'lectureCarte'@'localhost';
+GRANT SELECT ON `revision`.`carte_revision` TO 'lectureCarte'@'localhost';

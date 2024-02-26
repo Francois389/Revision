@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     background-color: #c2c2c2;
 }
@@ -12,13 +12,18 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin: 3% 0;
 }
 
 .description {
-    background-color: #FFF;
-    border-radius: 5px;
-    padding: 1vh;
-    margin: 1vh;
+    width: 100%;
+
+    div {
+        background-color: #FFF;
+        width: 100%;
+        border-radius: 5px;
+        padding: 4% 2%;
+    }
 }
 
 .container-date-echeance-creation, .container-importance {
@@ -28,15 +33,29 @@
 .container-date-echeance, .container-date-creation {
     display: flex;
     flex-direction: column;
-    align-items: center;
 
     .date-creation, .date-echeance {
-        margin: 0 10px;
         background-color: #fff;
         color: #000;
         padding: 1vh;
         border-radius: 5px;
     }
+
+    .date-creation {
+        margin-left: 10px;
+    }
+
+    .date-echeance {
+        margin-right: 10px;
+    }
+}
+
+.container-date-echeance, .date-echeance {
+    align-items: start;
+}
+
+.container-date-creation, .date-creation {
+    align-items: end;
 }
 
 .row {

@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="../src/other/css/composant/carteRevision.css">
 <?php
 
+use other\classes\Carte;
+
 /**
  * Retourne le nombre d'étoiles en fonction de l'importance
  * @param $importance L'importance de la carte
@@ -19,7 +21,7 @@ function getStar($importance, $importance_max): string
     return $star;
 }
 
-function afficherCarte(\other\classes\Carte $carte): void
+function afficherCarte(Carte $carte): void
 {
     ?>
     <div class="carte">
@@ -28,7 +30,7 @@ function afficherCarte(\other\classes\Carte $carte): void
             <div><?php echo $carte->getTag() ?></div>
         </div>
         <div class="description">
-            <div><?php echo $carte->getDescription() ?></div>
+            <div disabled><?php echo $carte->getDescription() ?></div>
         </div>
         <div class="container-date-echeance-creation">
             <div class="container-date-echeance">

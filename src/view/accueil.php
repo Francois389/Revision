@@ -1,6 +1,6 @@
 <?php
-include "composant/carteRevision.php";
 include "composant/carrousel.php";
+include "composant/carteRevision.php";
 
 
 ?>

@@ -2,6 +2,8 @@
 
 namespace services;
 
+use other\classes\Carte;
+
 class HomeService implements Service
 {
     private \PDO $pdo;
@@ -21,7 +23,7 @@ class HomeService implements Service
      * @param int $id_user
      * @return array
      */
-    public function getCarteEcheanceCourte(int $nbCarte, int $id_user): array
+    public function getCarteEcheanceCourte(int $id_user, int $nbCarte = 10): array
     {
         $requete = "SELECT *
                     FROM carte_revision
@@ -31,8 +33,35 @@ class HomeService implements Service
                     LIMIT 100;";
         $stmt = $this->pdo->prepare($requete);
         $stmt->bindParam("id_user", $id_user);
-        $resultat = $stmt->execute();
+        $stmt->execute();
 
-        return array();
+        $cartes = array();
+        while ($row = $stmt->fetch()) {
+            $cartes[] = new Carte($row["titre"], "", $row["description"], $row["date_echeance"], $row["date_creation"], $row["importance"]);
+        }
+        $stmt->closeCursor();
+
+        return $cartes;
+    }
+
+    public function getCarteAleatoire(int $id_user, int $nbCarte = 10): array
+    {
+        $requete = "SELECT DISTINCT *
+                    FROM carte_revision
+                    WHERE id_user = :id_user
+                    ORDER BY RAND()
+                    LIMIT :nbCarte;";
+        $stmt = $this->pdo->prepare($requete);
+        $stmt->bindParam("id_user", $id_user);
+        $stmt->bindParam("nbCarte", $nbCarte);
+        $stmt->execute();
+
+        $cartes = array();
+        while ($row = $stmt->fetch()) {
+            $cartes[] = new Carte($row["titre"], "", $row["description"], $row["date_echeance"], $row["date_creation"], $row["importance"]);
+        }
+        $stmt->closeCursor();
+
+        return $cartes;
     }
 }
