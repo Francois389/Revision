@@ -3,18 +3,15 @@
 namespace controllers;
 
 use other\classes\Carte;
-use services\AccueilService;
 use services\NoService;
 use services\Service;
+use yasmf\DataSource;
 use yasmf\View;
 
 /**
  * Contrôleur responsable de la gestion de la page d'accueil.
  *
- * @author clement.denamiel
- * @author rafael.roma
- * @author lohan.vignals
- * @author antonin.veyre
+ * @author François de Saint Palais
  */
 class HomeController implements Controller
 {
@@ -24,9 +21,10 @@ class HomeController implements Controller
     /**
      * Constructeur de la classe.
      *
-     * @param NoService|Service $noService Service du HomeController.
+     * @param Service $service
+     * @param DataSource $dataSource
      */
-    public function __construct(Service $service)
+    public function __construct(Service $service, DataSource $dataSource)
     {
         $this->service = $service;
     }
@@ -39,11 +37,10 @@ class HomeController implements Controller
     public function index(): View
     {
 
-        $carte = new Carte('titre', 'tag', 'description', date('d/m/Y', strtotime('+1 week')), date("d/m/Y"), 4);
+        $this->service->setPDO();
 
-        //STUMB
-        $carteEcheanceCourte = array($carte, $carte, $carte, $carte, $carte, $carte, $carte, $carte, $carte);
-        $carteAleatoire = array($carte, $carte, $carte, $carte, $carte);
+        $carteEcheanceCourte = $this->service->getCarteEcheanceCourte(20);
+        $carteAleatoire = $this->service->getCarteAleatoire(20);
 
         $view = new View('accueil');
         $view->setVar('carteEcheanceCourte', $carteEcheanceCourte);

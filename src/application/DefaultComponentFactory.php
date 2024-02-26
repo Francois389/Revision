@@ -27,6 +27,7 @@ use services\HomeService;
 use services\NoService;
 use services\Service;
 use yasmf\ComponentFactory;
+use yasmf\DataSource;
 use yasmf\NoControllerAvailableForNameException;
 use yasmf\NoServiceAvailableForNameException;
 
@@ -41,11 +42,11 @@ class DefaultComponentFactory implements ComponentFactory
      * @throws NoControllerAvailableForNameException when controller is not found
      * @throws NoServiceAvailableForNameException when service is not found
      */
-    public function buildControllerByName(string $controller_name): mixed
+    public function buildControllerByName(string $controller_name, DataSource $dataSource): mixed
     {
         return match ($controller_name) {
-            "Home" => $this->buildHomeController(),
-            "CreationCarte" => $this->buildCreationCarteCOntroller(),
+            "Home" => $this->buildHomeController($dataSource),
+            "CreationCarte" => $this->buildCreationCarteController($dataSource),
             default => throw new NoControllerAvailableForNameException($controller_name)
         };
     }
@@ -66,22 +67,12 @@ class DefaultComponentFactory implements ComponentFactory
     }
 
 
-    /**
-     * @return HomeController
-     * @throws NoServiceAvailableForNameException
-     */
-    private function buildHomeController(): HomeController
-    {
-        return new HomeController($this->buildServiceByName("Home"));
+    private function buildHomeController(DataSource $dataSource): HomeController {
+        return new HomeController($this->buildServiceByName("Home"), $dataSource);
     }
 
-    /**
-     * @return CreationCarteController
-     * @throws NoServiceAvailableForNameException
-     */
-    private function buildCreationCarteController(): CreationCarteController
-    {
-        return new CreationCarteController($this->buildServiceByName("CreationCarte"));
+    private function buildCreationCarteController(DataSource $dataSource): CreationCarteController {
+        return new CreationCarteController($this->buildServiceByName("CreationCarte"), $dataSource);
     }
 
 }

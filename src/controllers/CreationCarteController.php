@@ -4,17 +4,18 @@ namespace controllers;
 
 use services\CreationCarteService;
 use services\Service;
+use yasmf\DataSource;
 use yasmf\View;
 
 class CreationCarteController implements Controller
 {
     private CreationCarteService $creationCarteService;
 
-    public function __construct(Service $service)
+    public function __construct(Service $service, DataSource $dataSource)
     {
         $_SESSION["id_user"] = 20;
         $this->creationCarteService = $service;
-        $this->creationCarteService->setPDO(\yasmf\DataSource::getPDOCreationCarte());
+        $this->creationCarteService->setPDO(DataSource::getPDOCreationCarte());
     }
 
     public function index(): View

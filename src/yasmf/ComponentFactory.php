@@ -29,7 +29,7 @@ interface ComponentFactory
      * @return mixed the controller
      * @throws NoControllerAvailableForNameException when controller is not found
      */
-    public function buildControllerByName(string $controller_name): mixed;
+    public function buildControllerByName(string $controller_name, DataSource $dataSource): mixed;
 
     /**
      * @param string $service_name the name of the service
