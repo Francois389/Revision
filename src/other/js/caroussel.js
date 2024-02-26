@@ -22,7 +22,7 @@ for (const caroussel of carousselCollection) {
     let activeDotNum = caroussel.activeDotNum;
 
     for (let i = 0; i < dots.length; i++) {
-        dots[i].setAttribute('data-num', i);
+        dots[i].setAttribute('data-num', i + "");
         dots[i].addEventListener('click', (e) => {
             let clickedDotNum = e.target.dataset.num;
 

@@ -42,7 +42,7 @@ class HomeController implements Controller
         $carte = new Carte('titre', 'tag', 'description', date('d/m/Y', strtotime('+1 week')), date("d/m/Y"), 4);
 
         //STUMB
-        $carteEcheanceCourte = array($carte, $carte, $carte, $carte, $carte);
+        $carteEcheanceCourte = array($carte, $carte, $carte, $carte, $carte, $carte, $carte, $carte, $carte);
         $carteAleatoire = array($carte, $carte, $carte, $carte, $carte);
 
         $view = new View('accueil');
