@@ -1,0 +1,38 @@
+.carte {
+    margin: 10px;
+    flex: 200px 0 0;
+}
+
+.conteneur-carte {
+    display: flex;
+    transition: ease 0.5s;
+}
+
+.display-area {
+    /*   border: 1px solid black; */
+    overflow-x: hidden;
+}
+
+.dots-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.dot {
+    border: none;
+    background: rgba(0, 0, 0, 0.2);
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    border-radius: 50%;
+    outline: none;
+}
+
+.dot:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.dot.active {
+    background: rgba(0, 0, 0, 0.5);
+}
