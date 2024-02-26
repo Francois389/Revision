@@ -8,7 +8,9 @@ class CreationCarteService implements Service
 {
     private \PDO $pdo;
 
-    public function __construct() { }
+    public function __construct()
+    {
+    }
 
     public function setPDO(\PDO $pdo): void
     {

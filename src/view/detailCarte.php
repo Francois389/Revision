@@ -29,7 +29,7 @@ require "composant/carteRevision.php";
     if (isset($carte)) {
         afficherCarte($carte);
     }
-    ?>
+?>
 
 
     </body>

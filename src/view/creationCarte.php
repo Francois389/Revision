@@ -64,7 +64,7 @@ include 'composant/header.php'
                     foreach ($tabTag as $tab) {
                         echo getOption($tab["code"], $tab["nom"], $tab["code"] == $tagInfo["valeur"]);
                     }
-                    ?>
+?>
                 </select>
             </div>
 

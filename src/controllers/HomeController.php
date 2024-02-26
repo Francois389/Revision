@@ -18,7 +18,6 @@ use yasmf\View;
  */
 class HomeController implements Controller
 {
-
     private Service $service;
 
     /**

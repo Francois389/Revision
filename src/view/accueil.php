@@ -18,8 +18,8 @@ include "composant/carteRevision.php";
     <body>
     <?php
     $pageSelectionner = "accueil";
-    include 'composant/header.php'
-    ?>
+include 'composant/header.php'
+?>
 
     <div class="app">
         <div class="conteneur-section">
@@ -29,10 +29,10 @@ include "composant/carteRevision.php";
             <!-- TOOD faire un caroussel -->
             <div class="conteneur-carte">
                 <?php
-                foreach ($carteEcheanceCourte as $carteA) {
-                    afficherCarte($carteA);
-                }
-                ?>
+            foreach ($carteEcheanceCourte as $carteA) {
+                afficherCarte($carteA);
+            }
+?>
             </div>
         </div>
         <div class="conteneur-section">
@@ -42,10 +42,10 @@ include "composant/carteRevision.php";
                         <!-- TOOD faire un caroussel -->
             <div class="conteneur-carte">
                 <?php
-                foreach ($carteAleatoire as $carteA) {
-                    afficherCarte($carteA);
-                }
-                ?>
+foreach ($carteAleatoire as $carteA) {
+    afficherCarte($carteA);
+}
+?>
             </div>
         </div>
     </div>
