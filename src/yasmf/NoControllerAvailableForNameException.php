@@ -26,7 +26,6 @@ use Exception;
  */
 class NoControllerAvailableForNameException extends Exception
 {
-
     /**
      * @param string $controller_name the name of the not found controller
      */

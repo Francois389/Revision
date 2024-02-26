@@ -4,7 +4,7 @@ namespace other\classes;
 
 /**
  * Classe contenant un festival
- * 
+ *
  * @author clement.denamiel
  * @author rafael.roma
  * @author lohan.vignals
@@ -12,7 +12,6 @@ namespace other\classes;
  */
 final class Festival
 {
-    
     /** @var string nom du festival */
     private string $nom;
 
@@ -83,7 +82,7 @@ final class Festival
         string $debutGriJ,
         string $finGriJ,
         string $dureeGriJ
-        ) {
+    ) {
 
         $this->nom = $nom;
         $this->description = $description;
@@ -105,7 +104,8 @@ final class Festival
      *
      * @return string Le nom du festival.
      */
-    public function getNom(): string {
+    public function getNom(): string
+    {
         return $this->nom;
     }
 
@@ -114,7 +114,8 @@ final class Festival
      *
      * @return string La description du festival.
      */
-    public function getDescription(): string {
+    public function getDescription(): string
+    {
         return $this->description;
     }
 
@@ -123,7 +124,8 @@ final class Festival
      *
      * @return int L'ID de l'image du festival.
      */
-    public function getIdImage(): int {
+    public function getIdImage(): int
+    {
         return $this->id_image;
     }
 
@@ -132,7 +134,8 @@ final class Festival
      *
      * @return string La date de début du festival.
      */
-    public function getDateDebut(): string {
+    public function getDateDebut(): string
+    {
         return $this->date_debut;
     }
 
@@ -141,7 +144,8 @@ final class Festival
      *
      * @return string La date de fin du festival.
      */
-    public function getDateFin(): string {
+    public function getDateFin(): string
+    {
         return $this->date_fin;
     }
 
@@ -150,7 +154,8 @@ final class Festival
      *
      * @return string L'ID du responsable du festival.
      */
-    public function getIdResponsable(): string {
+    public function getIdResponsable(): string
+    {
         return $this->idResponsable;
     }
 
@@ -159,7 +164,8 @@ final class Festival
      *
      * @return string La ville du festival.
      */
-    public function getVille(): string {
+    public function getVille(): string
+    {
         return $this->ville;
     }
 
@@ -168,7 +174,8 @@ final class Festival
      *
      * @return string Le code postal du lieu du festival.
      */
-    public function getCodePostal(): string {
+    public function getCodePostal(): string
+    {
         return $this->code_postal;
     }
 
@@ -177,7 +184,8 @@ final class Festival
      *
      * @return array Tableau des ID des spectacles du festival.
      */
-    public function getSpectacles(): array {
+    public function getSpectacles(): array
+    {
         return $this->spectacles;
     }
 
@@ -186,7 +194,8 @@ final class Festival
      *
      * @return array Tableau des ID des catégories du festival.
      */
-    public function getCategories(): array {
+    public function getCategories(): array
+    {
         return $this->categories;
     }
 
@@ -195,7 +204,8 @@ final class Festival
      *
      * @return array Tableau des ID des scènes du festival.
      */
-    public function getScenes(): array {
+    public function getScenes(): array
+    {
         return $this->scenes;
     }
 

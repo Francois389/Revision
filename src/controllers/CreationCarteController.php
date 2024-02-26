@@ -28,7 +28,7 @@ class CreationCarteController implements Controller
         $this->validationEcheance($echeance);
         $this->validationImportance($importance);
 
-        $tabTag = [["nom"=>"Contrôle", "code"=>"controle"],["nom" => "Exercice", "code"=>"exercice"]];
+        $tabTag = [["nom" => "Contrôle", "code" => "controle"],["nom" => "Exercice", "code" => "exercice"]];
 
         $view = new View("creationCarte");
         $view->setVar("titreInfo", $titre);

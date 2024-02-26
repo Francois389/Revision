@@ -11,14 +11,14 @@ use services\AccueilService;
 
 /**
  * Contrôleur responsable de la gestion de la page d'accueil.
- * 
+ *
  * @author clement.denamiel
  * @author rafael.roma
  * @author lohan.vignals
  * @author antonin.veyre
  */
-class HomeController implements Controller{
-
+class HomeController implements Controller
+{
     private NoService $NoService;
 
     /**
@@ -39,7 +39,7 @@ class HomeController implements Controller{
     public function index(): View
     {
 
-        $carte = new Carte('titre', 'tag', 'description',date('d/m/Y', strtotime('+1 week')) , date("d/m/Y"), 4);
+        $carte = new Carte('titre', 'tag', 'description', date('d/m/Y', strtotime('+1 week')), date("d/m/Y"), 4);
         $view = new View('detailCarte');
         $view->setVar('carte', $carte);
         return $view;

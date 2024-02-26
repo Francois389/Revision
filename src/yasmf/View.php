@@ -49,7 +49,7 @@ class View
      * @param mixed $value the value of the variable
      * @return $this the update current view
      */
-    public function setVar(string $key, mixed $value) : View
+    public function setVar(string $key, mixed $value): View
     {
         $this->viewParams[$key] = $value;
         return $this;
@@ -61,7 +61,8 @@ class View
      * @param string $key the name of the variable
      * @return mixed the value of the variable
      */
-    public function getVar(string $key) : mixed {
+    public function getVar(string $key): mixed
+    {
         return $this->viewParams[$key];
     }
 
@@ -72,7 +73,7 @@ class View
      * @param string $prefixToRelativePath the prefix to the relative path
      * @return void
      */
-    public function render(string $prefixToRelativePath = '') : void
+    public function render(string $prefixToRelativePath = ''): void
     {
         // convert view params in variables accessible by the php file
         extract($this->viewParams);

@@ -27,16 +27,24 @@ session_start();
  */
 class HttpHelper
 {
-
     /**
      * @param string $name the name of the param
      * @return string|null the value of the param if defined, null otherwise
      */
-    public static function getParam(string $name): ?string {
-        if (isset($_GET[$name])) return htmlspecialchars($_GET[$name]);
-        if (isset($_POST[$name])) return htmlspecialchars($_POST[$name]);
-        if (isset($_FILES[$name])) return $_FILES[$name];
-        if (isset($_SESSION[$name])) return $_SESSION[$name];
+    public static function getParam(string $name): ?string
+    {
+        if (isset($_GET[$name])) {
+            return htmlspecialchars($_GET[$name]);
+        }
+        if (isset($_POST[$name])) {
+            return htmlspecialchars($_POST[$name]);
+        }
+        if (isset($_FILES[$name])) {
+            return $_FILES[$name];
+        }
+        if (isset($_SESSION[$name])) {
+            return $_SESSION[$name];
+        }
         return null;
     }
 

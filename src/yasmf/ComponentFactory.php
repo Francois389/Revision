@@ -24,7 +24,6 @@ namespace yasmf;
  */
 interface ComponentFactory
 {
-
     /**
      * @param string $controller_name the name of the controller to instanciate
      * @return mixed the controller
