@@ -21,7 +21,7 @@ class HomeService implements Service
      * @param int $id_user
      * @return array
      */
-    public function getCarteEcheanceCourte( int $id_user, int $nbCarte = 10): array
+    public function getCarteEcheanceCourte(int $nbCarte, int $id_user): array
     {
         $requete = "SELECT *
                     FROM carte_revision
@@ -31,35 +31,8 @@ class HomeService implements Service
                     LIMIT 100;";
         $stmt = $this->pdo->prepare($requete);
         $stmt->bindParam("id_user", $id_user);
-        $stmt->execute();
+        $resultat = $stmt->execute();
 
-        $cartes = array();
-        while ($row = $stmt->fetch()) {
-            $cartes[] = $row;
-        }
-        $stmt->closeCursor();
-
-        return $cartes;
-    }
-
-    public function getCarteAleatoire(int $id_user, int $nbCarte = 10): array
-    {
-        $requete = "SELECT DISTINCT *
-                    FROM carte_revision
-                    WHERE id_user = :id_user
-                    ORDER BY RAND()
-                    LIMIT :nbCarte;";
-        $stmt = $this->pdo->prepare($requete);
-        $stmt->bindParam("id_user", $id_user);
-        $stmt->bindParam("nbCarte", $nbCarte);
-        $stmt->execute();
-
-        $cartes = array();
-        while ($row = $stmt->fetch()) {
-            $cartes[] = $row;
-        }
-        $stmt->closeCursor();
-
-        return $cartes;
+        return array();
     }
 }

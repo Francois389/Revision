@@ -27,7 +27,6 @@ use services\HomeService;
 use services\NoService;
 use services\Service;
 use yasmf\ComponentFactory;
-use yasmf\DataSource;
 use yasmf\NoControllerAvailableForNameException;
 use yasmf\NoServiceAvailableForNameException;
 
@@ -42,11 +41,11 @@ class DefaultComponentFactory implements ComponentFactory
      * @throws NoControllerAvailableForNameException when controller is not found
      * @throws NoServiceAvailableForNameException when service is not found
      */
-    public function buildControllerByName(string $controller_name, DataSource $dataSource): mixed
+    public function buildControllerByName(string $controller_name): mixed
     {
         return match ($controller_name) {
-            "Home" => $this->buildHomeController($dataSource),
-            "CreationCarte" => $this->buildCreationCarteController($dataSource),
+            "Home" => $this->buildHomeController(),
+            "CreationCarte" => $this->buildCreationCarteCOntroller(),
             default => throw new NoControllerAvailableForNameException($controller_name)
         };
     }
@@ -67,12 +66,22 @@ class DefaultComponentFactory implements ComponentFactory
     }
 
 
-    private function buildHomeController(DataSource $dataSource): HomeController {
-        return new HomeController($this->buildServiceByName("Home"), $dataSource);
+    /**
+     * @return HomeController
+     * @throws NoServiceAvailableForNameException
+     */
+    private function buildHomeController(): HomeController
+    {
+        return new HomeController($this->buildServiceByName("Home"));
     }
 
-    private function buildCreationCarteController(DataSource $dataSource): CreationCarteController {
-        return new CreationCarteController($this->buildServiceByName("CreationCarte"), $dataSource);
+    /**
+     * @return CreationCarteController
+     * @throws NoServiceAvailableForNameException
+     */
+    private function buildCreationCarteController(): CreationCarteController
+    {
+        return new CreationCarteController($this->buildServiceByName("CreationCarte"));
     }
 
 }

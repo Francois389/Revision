@@ -28,15 +28,12 @@ class Router
 {
     private ComponentFactory $componentFactory;
 
-    private DataSource $dataSource;
-
     /**
      * @param ComponentFactory $componentFactory component factory
      */
-    public function __construct(ComponentFactory $componentFactory, DataSource $dataSource = null)
+    public function __construct(ComponentFactory $componentFactory)
     {
         $this->componentFactory = $componentFactory;
-        $this->dataSource = $dataSource;
     }
 
     /**
@@ -69,7 +66,7 @@ class Router
     public function createController(): mixed
     {
         $controller_name = HttpHelper::getParam('controller') ?: 'Home';
-        return $this->componentFactory->buildControllerByName($controller_name, $this->dataSource);
+        return $this->componentFactory->buildControllerByName($controller_name);
     }
 
     /**
