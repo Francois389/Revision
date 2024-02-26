@@ -26,7 +26,6 @@ use Exception;
  */
 class NoServiceAvailableForNameException extends Exception
 {
-
     /**
      * @param string $service_name the name of the not found service
      */

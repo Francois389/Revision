@@ -18,7 +18,7 @@ require "composant/carteRevision.php";
     <body>
     <?php
     include 'composant/header.php';
-    ?>
+?>
 
     <div class="container-btn-action">
         <div class="btn btn-modifier">Modifier</div>

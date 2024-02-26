@@ -13,22 +13,30 @@ if (isset($pageSelectionner)) {
 
 <div class="entete">
     <div class="action">
-        <a href="#" class="<?php if ($tab["accueil"]) echo "selectionner" ?>">
+        <a href="#" class="<?php if ($tab["accueil"]) {
+            echo "selectionner";
+        }?>">
 
             Accueil
         </a>
-        <a href="#" class="<?php if ($tab["parcourir"]) echo "selectionner" ?>">
+        <a href="#" class="<?php if ($tab["parcourir"]) {
+            echo "selectionner";
+        }?>">
 
             Parcourir
         </a>
-        <a href="index.php?controller=CreationCarte" class="<?php if ($tab["creer"]) echo "selectionner" ?>">
+        <a href="index.php?controller=CreationCarte" class="<?php if ($tab["creer"]) {
+            echo "selectionner";
+        }?>">
             Créer +
         </a>
     </div>
     <p class="titre">
         Revision
     </p>
-    <a href="#" class="<?php if ($tab["mon_compte"]) echo "selectionner" ?>">
+    <a href="#" class="<?php if ($tab["mon_compte"]) {
+        echo "selectionner";
+    }?>">
         Mon compte
         <i class="fa-solid fa-user"></i>
     </a>

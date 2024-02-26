@@ -8,7 +8,6 @@ use application\DefaultComponentFactory;
 use yasmf\DataSource;
 use yasmf\Router;
 
-
 $dataSource = new DataSource(
     $host = 'localhost',
     $port = '3306',
@@ -21,5 +20,3 @@ $dataSource = new DataSource(
 
 $router = new Router(new DefaultComponentFactory(), $dataSource) ;
 $router->route(PREFIX_TO_RELATIVE_PATH);
-
-

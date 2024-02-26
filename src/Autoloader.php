@@ -4,13 +4,14 @@
  * Manage automatic import of classes
  * with their namespaces.
  */
-class Autoloader {
-
+class Autoloader
+{
     /**
      * Define the __autoload function on
      * Autoloader::festiplan_autoloader()
      */
-    public static function autoload() {
+    public static function autoload()
+    {
         spl_autoload_register(array(__CLASS__, "revision_autoloader"));
     }
 
@@ -20,7 +21,7 @@ class Autoloader {
      */
     public static function revision_autoloader($namespace): void
     {
-        $path = str_replace("\\","/", $namespace);
+        $path = str_replace("\\", "/", $namespace);
         $path = $path[0] == "/" ? substr($path, 1) : $path;
         include $path . ".php";
     }

@@ -4,7 +4,6 @@ namespace other\classes;
 
 class User
 {
-
     /**
      * Le nom de l'utilisateur.
      *

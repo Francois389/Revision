@@ -6,7 +6,6 @@ use yasmf\NoControllerAvailableForNameException;
 
 class Spectacle
 {
-
     /**
      * Le titre du spectacle.
      *
