@@ -33,7 +33,7 @@ class Router
     /**
      * @param ComponentFactory $componentFactory component factory
      */
-    function __construct(ComponentFactory $componentFactory) {
+    public function __construct(ComponentFactory $componentFactory) {
         $this->componentFactory = $componentFactory;
     }
 
