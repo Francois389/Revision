@@ -20,8 +20,6 @@
 
 namespace yasmf;
 
-
-
 /**
  * Class representing objects in charge of routing the request to the right controller
  * and the right action
@@ -33,7 +31,8 @@ class Router
     /**
      * @param ComponentFactory $componentFactory component factory
      */
-    public function __construct(ComponentFactory $componentFactory) {
+    public function __construct(ComponentFactory $componentFactory)
+    {
         $this->componentFactory = $componentFactory;
     }
 
@@ -78,4 +77,3 @@ class Router
         return HttpHelper::getParam('action') ?: 'index';
     }
 }
-
