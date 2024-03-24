@@ -29,6 +29,9 @@ function getOption(string $value, string $textDisplay, bool $isSelected = false)
         <title>Création d'une carte</title>
         <link rel="stylesheet" href="other/css/creationCarte.css">
 
+        <!-- JQUERY -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
         <script src="other/js/gestionEtoile.js" defer></script>
     </head>
     <body>
